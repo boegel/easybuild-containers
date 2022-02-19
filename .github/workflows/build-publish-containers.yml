@@ -11,6 +11,7 @@ jobs:
       matrix:
         platform: [amd64, arm64]
         tag:
+          - alpine-3.15
           - centos-7.9.2009
           - centos-8.4.2105
           - fedora-35
@@ -74,6 +75,7 @@ jobs:
     strategy:
       matrix:
         tag:
+          - alpine-3.15
           - centos-7.9.2009
           - centos-8.4.2105
           - fedora-35

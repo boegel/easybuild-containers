@@ -12,6 +12,7 @@ jobs:
         platform: [amd64, arm64]
         tag:
           - centos-7.9
+          - centos-7.9-no-openssl
           - centos-8.4
           - fedora-35
           - opensuse-15.3

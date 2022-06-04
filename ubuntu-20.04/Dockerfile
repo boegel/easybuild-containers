@@ -8,4 +8,4 @@ RUN apt update \
 && apt install -y ./lmod_${LMOD_VERSION}_all.deb
 # debianutils provides 'which' command
 RUN apt install -y bzip2 debianutils diffutils file gcc g++ git gzip libibverbs-dev openssl libssl-dev make patch tar unzip xz-utils
-RUN python3 -m pip install archspec
+RUN python3 -m pip install archspec GitPython keyring keyrings.alt pycodestyle PyYAML rich

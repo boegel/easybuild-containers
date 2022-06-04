@@ -17,6 +17,7 @@ jobs:
           - opensuse-15.3
           - rockylinux-8.5
           - ubuntu-20.04
+          - redhat-ubi-8.6
       fail-fast: false
     steps:
       - name: Check out the repo

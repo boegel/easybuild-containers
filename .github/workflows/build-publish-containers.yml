@@ -13,6 +13,7 @@ jobs:
         tag:
           - centos-7.9
           - centos-7.9-no-openssl
+          - centos-7.9-openssl11
           - centos-8.4
           - fedora-35
           - opensuse-15.3

@@ -47,7 +47,7 @@ jobs:
             ${{ runner.os }}-buildx-${{ matrix.tag }}
 
       - name: Login to GitHub Container Registry
-        if: github.event_name == 'push' && github.ref_name == 'main'
+        if: github.event_name == 'push'
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
@@ -68,7 +68,7 @@ jobs:
           platforms: |
             linux/amd64
             linux/arm64
-          push: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
+          push: ${{ github.event_name == 'push'}}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
       - name: Move cache
@@ -83,7 +83,7 @@ jobs:
             ghcr.io/${{ env.REPOSITORY_OWNER }}/${{ matrix.tag }}-amd64:${{ env.IMAGE_TAG }}
           context: ${{ matrix.tag }}
           platforms: linux/amd64
-          push: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
+          push: ${{ github.event_name == 'push'}}
           cache-from: type=local,src=/tmp/.buildx-cache
       - name: Build and push to arm64
         uses: docker/build-push-action@v3
@@ -93,7 +93,7 @@ jobs:
             ghcr.io/${{ env.REPOSITORY_OWNER }}/${{ matrix.tag }}-arm64:${{ env.IMAGE_TAG }}
           context: ${{ matrix.tag }}
           platforms: linux/arm64
-          push: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
+          push: ${{ github.event_name == 'push'}}
           cache-from: type=local,src=/tmp/.buildx-cache
 
       
